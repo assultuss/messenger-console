@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/messenger-console/auth/api/v1/user_v1;user_v1";
+
+
+service UserService {
+  rpc CreateUser (CreateUserRequest) returns (CreateUserResponce);
+  rpc GetUser (GetUserRequest) returns (GetUserResponce);
+  rpc UpdateUser (UpdateUserRequest) returns (UpdateUserResponce);
+  rpc DeleteUser (DeleteUserRequest) returns (DeleteUserResponce);
+}
+
+message CreateUserRequest {
+  string name = 1;
+  string email = 2;
+  string password = 3;
+  string password_confirm = 4;
+  Role role = 5;
+}
+
+message CreateUserResponce {
+  int64 id = 1;
+}
+
+message GetUserRequest {
+  int64 id = 1;
+}
+
+message GetUserResponce {
+  int64 id = 1;
+  string name = 2;
+  string email = 3;
+  Role role = 4;
+  google.protobuf.Timestamp created_at = 5;
+  google.protobuf.Timestamp updated_at = 6;
+}
+
+message UpdateUserRequest {
+  int64 id = 1;
+  string name = 2;
+  string email = 3;
+}
+
+message UpdateUserResponce {}
+
+message DeleteUserRequest {
+  int64 id = 1;
+}
+
+message DeleteUserResponce {}
+
+enum Role {
+  USER = 0;
+  ADMIN = 1;
+}

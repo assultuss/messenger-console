@@ -1,2 +1,2 @@
 # messenger-console
-messenger-console for secret communication
+messenger-console for secret communication :)

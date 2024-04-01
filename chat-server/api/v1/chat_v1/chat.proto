@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/messenger-console/chat-server/pkg/chat_v1;chat_v1";
+
+service ChatService {
+  rpc Create(CreateChatRequest) returns (CreateChatResponce);
+  rpc Delete(DeleteChatRequest) returns (DeleteChatResponce);
+  rpc SendMessage(SendMessageRequest) returns (SendMessageResponce);
+}
+
+message CreateChatRequest {
+  repeated string usernames = 1;
+}
+
+message CreateChatResponce {
+  int64 id = 1;
+}
+
+message DeleteChatRequest {
+  int64 id = 1;
+}
+
+message DeleteChatResponce {}
+
+message SendMessageRequest {
+  string from = 1;
+  string text = 2;
+  google.protobuf.Timestamp timestamp = 3;
+}
+
+message SendMessageResponce {}
