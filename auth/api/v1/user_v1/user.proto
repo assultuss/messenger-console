@@ -6,10 +6,10 @@ option go_package = "github.com/messenger-console/auth/api/v1/user_v1;user_v1";
 
 
 service UserService {
-  rpc CreateUser (CreateUserRequest) returns (CreateUserResponce);
-  rpc GetUser (GetUserRequest) returns (GetUserResponce);
-  rpc UpdateUser (UpdateUserRequest) returns (UpdateUserResponce);
-  rpc DeleteUser (DeleteUserRequest) returns (DeleteUserResponce);
+  rpc CreateUser (CreateUserRequest) returns (CreateUserResponse);
+  rpc GetUser (GetUserRequest) returns (GetUserResponse);
+  rpc UpdateUser (UpdateUserRequest) returns (UpdateUserResponse);
+  rpc DeleteUser (DeleteUserRequest) returns (DeleteUserResponse);
 }
 
 message CreateUserRequest {
@@ -20,7 +20,7 @@ message CreateUserRequest {
   Role role = 5;
 }
 
-message CreateUserResponce {
+message CreateUserResponse {
   int64 id = 1;
 }
 
@@ -28,7 +28,7 @@ message GetUserRequest {
   int64 id = 1;
 }
 
-message GetUserResponce {
+message GetUserResponse {
   int64 id = 1;
   string name = 2;
   string email = 3;
@@ -43,13 +43,13 @@ message UpdateUserRequest {
   string email = 3;
 }
 
-message UpdateUserResponce {}
+message UpdateUserResponse {}
 
 message DeleteUserRequest {
   int64 id = 1;
 }
 
-message DeleteUserResponce {}
+message DeleteUserResponse {}
 
 enum Role {
   USER = 0;

@@ -19,14 +19,14 @@ type server struct {
 	pb.UnimplementedUserServiceServer
 }
 
-func (s *server) CreateUser(ctx context.Context, in *pb.CreateUserRequest) (*pb.CreateUserResponce, error) {
+func (s *server) CreateUser(ctx context.Context, in *pb.CreateUserRequest) (*pb.CreateUserResponse, error) {
 	log.Printf("Received: %v", in)
-	return &pb.CreateUserResponce{Id: 123}, nil
+	return &pb.CreateUserResponse{Id: 123}, nil
 }
 
-func (s *server) GetUser(ctx context.Context, in *pb.GetUserRequest) (*pb.GetUserResponce, error) {
+func (s *server) GetUser(ctx context.Context, in *pb.GetUserRequest) (*pb.GetUserResponse, error) {
 	log.Printf("Received: %v", in)
-	return &pb.GetUserResponce{
+	return &pb.GetUserResponse{
 		Id:        in.GetId(),
 		Name:      "assultuss",
 		Email:     "assultuss@gmail.com",
@@ -36,14 +36,14 @@ func (s *server) GetUser(ctx context.Context, in *pb.GetUserRequest) (*pb.GetUse
 	}, nil
 }
 
-func (s *server) UpdateUser(ctx context.Context, in *pb.UpdateUserRequest) (*pb.UpdateUserResponce, error) {
+func (s *server) UpdateUser(ctx context.Context, in *pb.UpdateUserRequest) (*pb.UpdateUserResponse, error) {
 	log.Printf("Received: %v", in)
-	return &pb.UpdateUserResponce{}, nil
+	return &pb.UpdateUserResponse{}, nil
 }
 
-func (s *server) DeleteUser(ctx context.Context, in *pb.DeleteUserRequest) (*pb.DeleteUserResponce, error) {
+func (s *server) DeleteUser(ctx context.Context, in *pb.DeleteUserRequest) (*pb.DeleteUserResponse, error) {
 	log.Printf("Received: %v", in)
-	return &pb.DeleteUserResponce{}, nil
+	return &pb.DeleteUserResponse{}, nil
 }
 
 func main() {

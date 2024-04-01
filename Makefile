@@ -14,9 +14,9 @@ generate:
 
 generate-user-api:
 	mkdir -p pkg/
-	protoc --proto_path=/Users/assultuss/Basic/GolandProjects/messenger-console/auth/api/v1/ \
+	protoc --proto_path=/path/to/your/proto/package/ \
 	--go_out=pkg/ --go_opt=paths=source_relative \
-	--plugin=protoc-gen-go=/Users/assultuss/Basic/GolandProjects/messenger-console/bin/protoc-gen-go \
+	--plugin=protoc-gen-go=/path/to/your/proto/package \
 	--go-grpc_out=pkg/ --go-grpc_opt=paths=source_relative \
-	--plugin=protoc-gen-go-grpc=/Users/assultuss/Basic/GolandProjects/messenger-console/bin/protoc-gen-go-grpc \
-	/Users/assultuss/Basic/GolandProjects/messenger-console/auth/api//v1//user.proto
+	--plugin=protoc-gen-go-grpc=/path/to/your/proto/package \
+	/path/to/your/proto/package//user.proto

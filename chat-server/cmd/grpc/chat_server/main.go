@@ -16,19 +16,19 @@ type server struct {
 	pb.UnimplementedChatServiceServer
 }
 
-func (s *server) Create(ctx context.Context, in *pb.CreateChatRequest) (*pb.CreateChatResponce, error) {
+func (s *server) Create(ctx context.Context, in *pb.CreateChatRequest) (*pb.CreateChatResponse, error) {
 	log.Printf("Received: %v", in.GetUsernames())
-	return &pb.CreateChatResponce{Id: 123}, nil
+	return &pb.CreateChatResponse{Id: 123}, nil
 }
 
-func (s *server) Delete(ctx context.Context, in *pb.DeleteChatRequest) (*pb.DeleteChatResponce, error) {
+func (s *server) Delete(ctx context.Context, in *pb.DeleteChatRequest) (*pb.DeleteChatResponse, error) {
 	log.Printf("Received: %v", in.GetId())
-	return &pb.DeleteChatResponce{}, nil
+	return &pb.DeleteChatResponse{}, nil
 }
 
-func (s *server) SendMessage(ctx context.Context, in *pb.SendMessageRequest) (*pb.SendMessageResponce, error) {
+func (s *server) SendMessage(ctx context.Context, in *pb.SendMessageRequest) (*pb.SendMessageResponse, error) {
 	log.Printf("Received: %v", in)
-	return &pb.SendMessageResponce{}, nil
+	return &pb.SendMessageResponse{}, nil
 }
 
 func main() {

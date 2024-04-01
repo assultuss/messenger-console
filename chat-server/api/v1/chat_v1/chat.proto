@@ -5,16 +5,16 @@ import "google/protobuf/timestamp.proto";
 option go_package = "github.com/messenger-console/chat-server/pkg/chat_v1;chat_v1";
 
 service ChatService {
-  rpc Create(CreateChatRequest) returns (CreateChatResponce);
-  rpc Delete(DeleteChatRequest) returns (DeleteChatResponce);
-  rpc SendMessage(SendMessageRequest) returns (SendMessageResponce);
+  rpc Create(CreateChatRequest) returns (CreateChatResponse);
+  rpc Delete(DeleteChatRequest) returns (DeleteChatResponse);
+  rpc SendMessage(SendMessageRequest) returns (SendMessageResponse);
 }
 
 message CreateChatRequest {
   repeated string usernames = 1;
 }
 
-message CreateChatResponce {
+message CreateChatResponse {
   int64 id = 1;
 }
 
@@ -22,7 +22,7 @@ message DeleteChatRequest {
   int64 id = 1;
 }
 
-message DeleteChatResponce {}
+message DeleteChatResponse {}
 
 message SendMessageRequest {
   string from = 1;
@@ -30,4 +30,4 @@ message SendMessageRequest {
   google.protobuf.Timestamp timestamp = 3;
 }
 
-message SendMessageResponce {}
+message SendMessageResponse {}
